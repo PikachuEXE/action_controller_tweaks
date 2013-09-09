@@ -1,5 +1,7 @@
-require 'coveralls'
-Coveralls.wear!('rails')
+if ENV["TRAVIS"]
+  require 'coveralls'
+  Coveralls.wear!('rails')
+end
 
 require 'action_controller_tweaks'
 
