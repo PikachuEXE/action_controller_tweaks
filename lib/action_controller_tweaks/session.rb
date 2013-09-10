@@ -50,7 +50,12 @@ module ActionControllerTweaks
       end
 
       def session_keys_to_expire
-        session[:session_keys_to_expire] || {}
+        # Check whether session key is a hash to prevent exception
+        unless session[:session_keys_to_expire].is_a?(Hash)
+          session[:session_keys_to_expire] = {}
+        end
+
+        session[:session_keys_to_expire]
       end
     end
   end

@@ -79,6 +79,35 @@ describe PostsController, type: :controller do
           end
         end
       end
+
+      context 'when someone screw up the special session key' do
+        before do
+          session[session_key] = session_value
+        end
+
+        context 'when someone set non time string in expire_at_str' do
+          before do
+            session['session_keys_to_expire'] = {session_key => ''}
+
+            # Runs before_filter
+            get :index
+          end
+
+          it 'destroys the session key' do
+            session.key?(session_key).should be_false
+          end
+        end
+
+        context 'when someone set non has to session_keys_to_expire' do
+          before do
+            session['session_keys_to_expire'] = []
+          end
+
+          it 'does not destroy the session key' do
+            session.key?(session_key).should be_true
+          end
+        end
+      end
     end
   end
 end
