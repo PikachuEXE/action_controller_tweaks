@@ -7,12 +7,21 @@ module ActionControllerTweaks
 
     SPECIAL_KEYS = %w( session_keys_to_expire )
 
+    class InvalidOptionValue < ArgumentError
+      def self.new(option_key, options_value, expected_types)
+        super("option key `#{option_key}` should contain value with type(s): #{expected_types}, " +
+          "but got <#{options_value.inspect}> (#{options_value.class})")
+      end
+    end
+
     included do
       before_filter :delete_expired_session_keys
 
       private
 
       def set_session(key, value, options = {})
+        options.symbolize_keys!
+
         key = key.to_sym
 
         if SPECIAL_KEYS.include?(key.to_s)
@@ -24,9 +33,19 @@ module ActionControllerTweaks
         # Set special session
         new_session_keys_to_expire = session_keys_to_expire
 
-        expire_in = options.delete(:expire_in)
-        if expire_in && expire_in.is_a?(Integer) # Time period
-          new_session_keys_to_expire[key] = expire_in.from_now
+        expire_in, expire_at = options.delete(:expire_in), options.delete(:expire_at)
+
+        if expire_at && expire_at.respond_to?(:to_time)
+          expire_at = expire_at.to_time
+        end
+
+        raise InvalidOptionValue.new(:expire_in, expire_in, Numeric) if expire_in && !expire_in.is_a?(Numeric)
+        raise InvalidOptionValue.new(:expire_at, expire_at, Time) if expire_at && !expire_at.is_a?(Time)
+
+        new_session_keys_to_expire[key] = if expire_in
+          expire_in.from_now
+        elsif expire_at
+          expire_at
         end
 
         session[:session_keys_to_expire] = new_session_keys_to_expire
@@ -40,7 +59,7 @@ module ActionControllerTweaks
               session.delete(key)
               session_keys_to_expire.delete(key)
             end
-          rescue ArgumentError 
+          rescue
             # Parse error
             # Let's expire it to be safe
             session.delete(key)
