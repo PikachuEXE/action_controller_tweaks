@@ -9,11 +9,11 @@ Tested against:
 - Action Controller of version `3.2` and `4.0` (`3.1` and below got problem with buggy `rspec-rails`)
 - Ruby `1.9.2`, `1.9.3`, `2.0.0` (except Rails 4 with `1.9.2`)
 
-[![Build Status](https://travis-ci.org/PikachuEXE/action_controller_tweaks.png?branch=master)](https://travis-ci.org/PikachuEXE/action_controller_tweaks)
-[![Gem Version](https://badge.fury.io/rb/action_controller_tweaks.png)](http://badge.fury.io/rb/action_controller_tweaks)
-[![Dependency Status](https://gemnasium.com/PikachuEXE/action_controller_tweaks.png)](https://gemnasium.com/PikachuEXE/action_controller_tweaks)
-[![Coverage Status](https://coveralls.io/repos/PikachuEXE/action_controller_tweaks/badge.png)](https://coveralls.io/r/PikachuEXE/action_controller_tweaks)
-[![Code Climate](https://codeclimate.com/github/PikachuEXE/action_controller_tweaks.png)](https://codeclimate.com/github/PikachuEXE/action_controller_tweaks)
+[![Build Status](http://img.shields.io/travis/PikachuEXE/action_controller_tweaks.svg)](https://travis-ci.org/PikachuEXE/action_controller_tweaks)
+[![Gem Version](http://img.shields.io/gem/v/action_controller_tweaks.svg)](http://badge.fury.io/rb/action_controller_tweaks)
+[![Dependency Status](http://img.shields.io/gemnasium/PikachuEXE/action_controller_tweaks.svg)](https://gemnasium.com/PikachuEXE/action_controller_tweaks)
+[![Coverage Status](http://img.shields.io/coveralls/PikachuEXE/action_controller_tweaks.svg)](https://coveralls.io/r/PikachuEXE/action_controller_tweaks)
+[![Code Climate](http://img.shields.io/codeclimate/github/PikachuEXE/action_controller_tweaks.svg)](https://codeclimate.com/github/PikachuEXE/action_controller_tweaks)
 
 Install
 =======
