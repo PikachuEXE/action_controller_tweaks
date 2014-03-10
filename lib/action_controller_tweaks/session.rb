@@ -33,19 +33,20 @@ module ActionControllerTweaks
         # Set special session
         new_session_keys_to_expire = session_keys_to_expire
 
-        expire_in, expire_at = options.delete(:expire_in), options.delete(:expire_at)
+        expires_in = options.delete(:expires_in) || options.delete(:expire_in)
+        expires_at = options.delete(:expires_at) || options.delete(:expire_at)
 
-        if expire_at && expire_at.respond_to?(:to_time)
-          expire_at = expire_at.to_time
+        if expires_at && expires_at.respond_to?(:to_time)
+          expires_at = expires_at.to_time
         end
 
-        raise InvalidOptionValue.new(:expire_in, expire_in, Numeric) if expire_in && !expire_in.is_a?(Numeric)
-        raise InvalidOptionValue.new(:expire_at, expire_at, Time) if expire_at && !expire_at.is_a?(Time)
+        raise InvalidOptionValue.new(:expires_in, expires_in, Numeric) if expires_in && !expires_in.is_a?(Numeric)
+        raise InvalidOptionValue.new(:expires_at, expires_at, Time) if expires_at && !expires_at.is_a?(Time)
 
-        new_session_keys_to_expire[key] = if expire_in
-          expire_in.from_now
-        elsif expire_at
-          expire_at
+        new_session_keys_to_expire[key] = if expires_in
+          expires_in.from_now
+        elsif expires_at
+          expires_at
         end
 
         session[:session_keys_to_expire] = new_session_keys_to_expire
