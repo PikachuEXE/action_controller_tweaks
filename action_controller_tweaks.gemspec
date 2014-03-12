@@ -9,7 +9,7 @@ require "#{gem_name}/version"
 Gem::Specification.new do |s|
   s.platform      = Gem::Platform::RUBY
   s.name          = gem_name
-  s.version       = ActionControllerTweaks::VERSION
+  s.version       = ActionControllerTweaks.version
   s.summary       = "Some Tweaks for ActionController"
   s.description   = "ActionController is great, but could be better. Here are some tweaks for it."
 
