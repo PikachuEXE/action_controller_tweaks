@@ -5,7 +5,17 @@ module ActionControllerTweaks
   module Session
     extend ActiveSupport::Concern
 
+    module Errors
+      InvalidOptionKeys = Class.new(ArgumentError)
+    end
+
     SPECIAL_KEYS = %w( session_keys_to_expire )
+    OPTIONS_KEYS = [
+      :expires_in,
+      :expires_at,
+      :expire_in,
+      :expire_at,
+    ].freeze
 
     class InvalidOptionValue < ArgumentError
       def self.new(option_key, options_value, expected_types)
@@ -19,6 +29,12 @@ module ActionControllerTweaks
 
       private
 
+      # Set session just like `session[key] = value` but accept some options about expiry
+      #
+      # @option expires_in [Integer] How long from now should the session value be expired
+      # @option expire_in [Integer] same as `expires_in`
+      # @option expires_at [Integer] What time should the session value be expired (using a time in the past would expire at next request)
+      # @option expire_at [Integer] same as `expires_at`
       def set_session(key, value, options = {})
         options.symbolize_keys!
 
@@ -50,6 +66,20 @@ module ActionControllerTweaks
         end
 
         session[:session_keys_to_expire] = new_session_keys_to_expire
+      end
+
+      # set value in session just like `set_session`, but checked option keys
+      #
+      # @raise [ActionControllerTweaks::Session::Errors::InvalidOptionKeys]
+      def set_session_with_expiry(key, value, options = {})
+        option_keys = options.symbolize_keys.keys
+        required_option_key_present = option_keys.any? do |key|
+          OPTIONS_KEYS.include?(key)
+        end
+        invalid_option_key_absent = (option_keys - OPTIONS_KEYS).any?
+        (required_option_key_present && invalid_option_key_absent) or raise ActionControllerTweaks::Session::Errors::InvalidOptionKeys
+
+        set_session(key, value, options = {})
       end
 
       def delete_expired_session_keys

@@ -20,9 +20,10 @@ describe PostsController, type: :controller do
   end
 
   describe '::Session' do
+    let(:session_key) { :key }
+    let(:session_value) { 'value' }
+
     describe '#set_session' do
-      let(:session_key) { :key }
-      let(:session_value) { 'value' }
       let(:expire_in) { 60 * 60 } # 1 hour
       let(:expire_at) { Time.new(2014, 1, 1).in_time_zone }
       let(:time_now) { Time.new(2013, 1, 1).in_time_zone }
@@ -331,6 +332,45 @@ describe PostsController, type: :controller do
           it 'does not destroy the session key' do
             session.key?(session_key).should be_true
           end
+        end
+      end
+    end
+
+    describe '#set_session_with_expiry' do
+      let(:method_call) do
+        controller.send(:set_session_with_expiry, session_key, session_value, options)
+      end
+
+      context 'when call with no options' do
+        let!(:options) { {} }
+
+        specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+      end
+      context 'when call with invalid option keys' do
+        let!(:options) { {key: :value} }
+
+        specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+      end
+      context 'when call with valid option keys' do
+        context 'like expire_in' do
+          let!(:options) { {expire_in: 1.day} }
+
+          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+        end
+        context 'like expire_at' do
+          let!(:options) { {expire_at: 1.day.from_now} }
+
+          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+        end
+        context 'like expires_in' do
+          let!(:options) { {expires_in: 1.day} }
+
+          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+        end
+        context 'like expires_at' do
+          let!(:options) { {expires_at: 1.day.from_now} }
+
+          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
         end
       end
     end
