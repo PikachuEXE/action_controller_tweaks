@@ -355,22 +355,22 @@ describe PostsController, type: :controller do
         context 'like expire_in' do
           let!(:options) { {expire_in: 1.day} }
 
-          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+          specify { expect{method_call}.to_not raise_error }
         end
         context 'like expire_at' do
           let!(:options) { {expire_at: 1.day.from_now} }
 
-          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+          specify { expect{method_call}.to_not raise_error }
         end
         context 'like expires_in' do
           let!(:options) { {expires_in: 1.day} }
 
-          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+          specify { expect{method_call}.to_not raise_error }
         end
         context 'like expires_at' do
           let!(:options) { {expires_at: 1.day.from_now} }
 
-          specify { expect{method_call}.to raise_error(ActionControllerTweaks::Session::Errors::InvalidOptionKeys) }
+          specify { expect{method_call}.to_not raise_error }
         end
       end
     end

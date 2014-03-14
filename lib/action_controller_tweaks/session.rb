@@ -9,8 +9,8 @@ module ActionControllerTweaks
       InvalidOptionKeys = Class.new(ArgumentError)
     end
 
-    SPECIAL_KEYS = %w( session_keys_to_expire )
-    OPTIONS_KEYS = [
+    RESERVED_SESSION_KEYS = %w( session_keys_to_expire )
+    VALID_OPTION_KEYS = [
       :expires_in,
       :expires_at,
       :expire_in,
@@ -38,9 +38,7 @@ module ActionControllerTweaks
       def set_session(key, value, options = {})
         options.symbolize_keys!
 
-        key = key.to_sym
-
-        if SPECIAL_KEYS.include?(key.to_s)
+        if RESERVED_SESSION_KEYS.include?(key.to_s)
           return
         end
 
@@ -74,9 +72,9 @@ module ActionControllerTweaks
       def set_session_with_expiry(key, value, options = {})
         option_keys = options.symbolize_keys.keys
         required_option_key_present = option_keys.any? do |key|
-          OPTIONS_KEYS.include?(key)
+          VALID_OPTION_KEYS.include?(key)
         end
-        invalid_option_key_absent = (option_keys - OPTIONS_KEYS).any?
+        invalid_option_key_absent = (option_keys - VALID_OPTION_KEYS.dup).empty?
         (required_option_key_present && invalid_option_key_absent) or raise ActionControllerTweaks::Session::Errors::InvalidOptionKeys
 
         set_session(key, value, options = {})
