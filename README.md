@@ -41,11 +41,24 @@ Usage:
   set_no_cache
 ```
 
-### `#set_session`
+### `#set_session` & `#set_session_with_expiry`
 I write this on my own, it's ok to blame me if it's buggy :P  
 This method let's you set session, with expiry time!  
+It depends on `before_filter`/`before_action` to remove expired session keys  
+Valid options: `expire_in`, `expires_in`, `expire_at`, `expires_at`
 Example:
 ```ruby
+# Option keys are NOT checked
+set_session(:key, 'value') # => Just like session[:key] = 'value'
+
 set_session(:key, 'value', expire_in: 1.day)
+set_session(:key, 'value', expires_in: 1.day)
+
+set_session(:key, 'value', expire_at: 1.day.from_now)
+set_session(:key, 'value', expires_at: 1.day.from_now)
+
+# Option keys are checked
+# You must pass valid options or error will be raised
+set_session_with_expiry(:key, 'value', expires_in: 1.day)
 ```
 Note: Please don't use the session key `session_keys_to_expire`, it's reserved for internal processing
