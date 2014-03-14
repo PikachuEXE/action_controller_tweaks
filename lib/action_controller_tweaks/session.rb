@@ -7,6 +7,7 @@ module ActionControllerTweaks
 
     module Errors
       InvalidOptionKeys = Class.new(ArgumentError)
+      ReservedSessionKeyConflict = Class.new(ArgumentError)
     end
 
     RESERVED_SESSION_KEYS = %w( session_keys_to_expire )
@@ -39,7 +40,7 @@ module ActionControllerTweaks
         options.symbolize_keys!
 
         if RESERVED_SESSION_KEYS.include?(key.to_s)
-          return
+          raise Errors::ReservedSessionKeyConflict.new, "you are trying to set #{value} to #{key}, but reserved by ActionControllerTweaks::Session"
         end
 
         session[key] = value

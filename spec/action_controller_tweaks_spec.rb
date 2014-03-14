@@ -32,19 +32,25 @@ describe PostsController, type: :controller do
       let(:expires_at) { expire_at }
 
       context 'when calling it without option' do
-        before do
+        let :set_session do
           controller.send(:set_session, session_key, session_value)
         end
 
-        it 'set the session' do
-          session[session_key].should eq session_value
+        context 'with normal key' do
+          before do
+            set_session
+          end
+
+          it 'set the session' do
+            session[session_key].should eq session_value
+          end
         end
 
-        context 'with a special key' do
-          let(:session_key) { ActionControllerTweaks::Session::SPECIAL_KEYS.first }
+        context 'with a reserved key' do
+          let(:session_key) { ActionControllerTweaks::Session::RESERVED_SESSION_KEYS.first }
 
-          it 'does not set the session' do
-            session[session_key].should be_nil
+          it 'raise error' do
+            expect { set_session }.to raise_error(ActionControllerTweaks::Session::Errors::ReservedSessionKeyConflict)
           end
         end
       end
