@@ -37,34 +37,13 @@ module ActionControllerTweaks
       # @option expires_at [Integer] What time should the session value be expired (using a time in the past would expire at next request)
       # @option expire_at [Integer] same as `expires_at`
       def set_session(key, value, options = {})
-        options.symbolize_keys!
-
         if RESERVED_SESSION_KEYS.include?(key.to_s)
           raise Errors::ReservedSessionKeyConflict.new, "you are trying to set #{value} to #{key}, but reserved by ActionControllerTweaks::Session"
         end
 
         session[key] = value
 
-        # Set special session
-        new_session_keys_to_expire = session_keys_to_expire
-
-        expires_in = options.delete(:expires_in) || options.delete(:expire_in)
-        expires_at = options.delete(:expires_at) || options.delete(:expire_at)
-
-        if expires_at && expires_at.respond_to?(:to_time)
-          expires_at = expires_at.to_time
-        end
-
-        raise InvalidOptionValue.new(:expires_in, expires_in, Numeric) if expires_in && !expires_in.is_a?(Numeric)
-        raise InvalidOptionValue.new(:expires_at, expires_at, Time) if expires_at && !expires_at.is_a?(Time)
-
-        new_session_keys_to_expire[key] = if expires_in
-          expires_in.from_now
-        elsif expires_at
-          expires_at
-        end
-
-        session[:session_keys_to_expire] = new_session_keys_to_expire
+        session[:session_keys_to_expire] = new_session_keys_to_expire(key, options)
       end
 
       # set value in session just like `set_session`, but checked option keys
@@ -105,6 +84,30 @@ module ActionControllerTweaks
         end
 
         session[:session_keys_to_expire]
+      end
+
+      def new_session_keys_to_expire(key, options = {})
+        options.symbolize_keys!
+
+        result = session_keys_to_expire
+
+        expires_in = options.delete(:expires_in) || options.delete(:expire_in)
+        expires_at = options.delete(:expires_at) || options.delete(:expire_at)
+
+        if expires_at && expires_at.respond_to?(:to_time)
+          expires_at = expires_at.to_time
+        end
+
+        raise InvalidOptionValue.new(:expires_in, expires_in, Numeric) if expires_in && !expires_in.is_a?(Numeric)
+        raise InvalidOptionValue.new(:expires_at, expires_at, Time) if expires_at && !expires_at.is_a?(Time)
+
+        result[key] = if expires_in
+          expires_in.from_now
+        elsif expires_at
+          expires_at
+        end
+
+        result
       end
     end
   end
