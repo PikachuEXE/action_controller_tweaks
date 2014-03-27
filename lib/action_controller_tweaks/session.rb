@@ -102,7 +102,7 @@ module ActionControllerTweaks
         raise InvalidOptionValue.new(:expires_at, expires_at, Time) if expires_at && !expires_at.is_a?(Time)
 
         result[key] = if expires_in
-          expires_in.from_now
+          expires_in.seconds.from_now
         elsif expires_at
           expires_at
         end
