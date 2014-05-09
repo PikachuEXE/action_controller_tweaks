@@ -1,6 +1,6 @@
 
 appraise "rails3-2" do
-  version = "3.2.17"
+  version = "3.2.18"
   gem 'activesupport', version
   gem 'actionpack', version
   gem 'activerecord', version
@@ -8,7 +8,7 @@ appraise "rails3-2" do
 end
 
 appraise "rails4-0" do
-  version = "4.0.3"
+  version = "4.0.5"
   gem 'activesupport', version
   gem 'actionpack', version
   gem 'activerecord', version
@@ -16,7 +16,7 @@ appraise "rails4-0" do
 end
 
 appraise "rails4-1" do
-  version = "4.1.0"
+  version = "4.1.1"
   gem 'activesupport', version
   gem 'actionpack', version
   gem 'activerecord', version
