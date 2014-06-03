@@ -7,7 +7,9 @@ require 'action_controller_tweaks'
 
 require 'fixtures/application'
 require 'fixtures/controllers'
+
 require 'rspec/rails'
+require 'rspec/its'
 
 require 'timecop'
 require 'logger'

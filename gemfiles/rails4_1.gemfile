@@ -7,4 +7,4 @@ gem "actionpack", "4.1.1"
 gem "activerecord", "4.1.1"
 gem "railties", "4.1.1"
 
-gemspec :path=>"../"
+gemspec :path => "../"

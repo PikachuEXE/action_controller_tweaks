@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe PostsController, type: :controller do
   describe 'included modules' do
-    it do
-      described_class.ancestors.should include(ActionControllerTweaks)
+    specify do
+      expect(described_class.ancestors).to include(ActionControllerTweaks)
     end
   end
 
@@ -14,8 +14,8 @@ describe PostsController, type: :controller do
       end
 
       it 'includes the pre defined headeres' do
-       controller.headers.deep_include?(ActionControllerTweaks::Caching::HEADERS).should be_true
-     end
+        expect(controller.headers.deep_include?(ActionControllerTweaks::Caching::HEADERS)).to be true
+      end
     end
   end
 
@@ -42,7 +42,7 @@ describe PostsController, type: :controller do
           end
 
           it 'set the session' do
-            session[session_key].should eq session_value
+            expect(session[session_key]).to eq session_value
           end
         end
 
@@ -70,7 +70,7 @@ describe PostsController, type: :controller do
           end
 
           it 'set the session' do
-            session[session_key].should eq session_value
+            expect(session[session_key]).to eq session_value
           end
 
           context 'before expire time' do
@@ -81,7 +81,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session[session_key].should eq session_value
+              expect(session[session_key]).to eq session_value
             end
           end
           context 'after expire time' do
@@ -92,7 +92,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session.key?(session_key).should be_false
+              expect(session.key?(session_key)).to be false
             end
           end
         end
@@ -111,7 +111,7 @@ describe PostsController, type: :controller do
           end
 
           it 'set the session' do
-            session[session_key].should eq session_value
+            expect(session[session_key]).to eq session_value
           end
 
           context 'before expire time' do
@@ -122,7 +122,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session[session_key].should eq session_value
+              expect(session[session_key]).to eq session_value
             end
           end
           context 'after expire time' do
@@ -133,7 +133,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session.key?(session_key).should be_false
+              expect(session.key?(session_key)).to be false
             end
           end
         end
@@ -153,7 +153,7 @@ describe PostsController, type: :controller do
           end
 
           it 'set the session' do
-            session[session_key].should eq session_value
+            expect(session[session_key]).to eq session_value
           end
 
           context 'before expire time' do
@@ -164,7 +164,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session[session_key].should eq session_value
+              expect(session[session_key]).to eq session_value
             end
           end
           context 'after expire time' do
@@ -175,7 +175,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session.key?(session_key).should be_false
+              expect(session.key?(session_key)).to be false
             end
           end
         end
@@ -194,7 +194,7 @@ describe PostsController, type: :controller do
           end
 
           it 'set the session' do
-            session[session_key].should eq session_value
+            expect(session[session_key]).to eq session_value
           end
 
           context 'before expire time' do
@@ -205,7 +205,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session[session_key].should eq session_value
+              expect(session[session_key]).to eq session_value
             end
           end
           context 'after expire time' do
@@ -216,7 +216,7 @@ describe PostsController, type: :controller do
             end
 
             it 'keeps the session key' do
-              session.key?(session_key).should be_false
+              expect(session.key?(session_key)).to be false
             end
           end
         end
@@ -326,7 +326,7 @@ describe PostsController, type: :controller do
           end
 
           it 'destroys the session key' do
-            session.key?(session_key).should be_false
+            expect(session.key?(session_key)).to be false
           end
         end
 
@@ -336,7 +336,7 @@ describe PostsController, type: :controller do
           end
 
           it 'does not destroy the session key' do
-            session.key?(session_key).should be_true
+            expect(session.key?(session_key)).to be true
           end
         end
       end
