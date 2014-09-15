@@ -5,9 +5,6 @@ ActionController is great, but could be better. Here are some tweaks for it.
 
 ### Support
 ===========
-Tested against:
-- Action Controller of version `3.2`, `4.0`, `4.1` (`3.1` and below got problem with buggy `rspec-rails`)
-- Ruby `1.9.2`, `1.9.3`, `2.0.0`, `2.1.1` (except Rails 4 with `1.9.2`)
 
 [![Build Status](http://img.shields.io/travis/PikachuEXE/action_controller_tweaks.svg)](https://travis-ci.org/PikachuEXE/action_controller_tweaks)
 [![Gem Version](http://img.shields.io/gem/v/action_controller_tweaks.svg)](http://badge.fury.io/rb/action_controller_tweaks)
