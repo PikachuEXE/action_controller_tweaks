@@ -6,11 +6,11 @@ ActionController is great, but could be better. Here are some tweaks for it.
 ### Support
 ===========
 
-[![Build Status](http://img.shields.io/travis/PikachuEXE/action_controller_tweaks.svg)](https://travis-ci.org/PikachuEXE/action_controller_tweaks)
-[![Gem Version](http://img.shields.io/gem/v/action_controller_tweaks.svg)](http://badge.fury.io/rb/action_controller_tweaks)
-[![Dependency Status](http://img.shields.io/gemnasium/PikachuEXE/action_controller_tweaks.svg)](https://gemnasium.com/PikachuEXE/action_controller_tweaks)
-[![Coverage Status](http://img.shields.io/coveralls/PikachuEXE/action_controller_tweaks.svg)](https://coveralls.io/r/PikachuEXE/action_controller_tweaks)
-[![Code Climate](http://img.shields.io/codeclimate/github/PikachuEXE/action_controller_tweaks.svg)](https://codeclimate.com/github/PikachuEXE/action_controller_tweaks)
+[![Build Status](http://img.shields.io/travis/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://travis-ci.org/PikachuEXE/action_controller_tweaks)
+[![Gem Version](http://img.shields.io/gem/v/action_controller_tweaks.svg?style=flat-square)](http://badge.fury.io/rb/action_controller_tweaks)
+[![Dependency Status](http://img.shields.io/gemnasium/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://gemnasium.com/PikachuEXE/action_controller_tweaks)
+[![Coverage Status](http://img.shields.io/coveralls/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://coveralls.io/r/PikachuEXE/action_controller_tweaks)
+[![Code Climate](http://img.shields.io/codeclimate/github/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://codeclimate.com/github/PikachuEXE/action_controller_tweaks)
 
 Install
 =======
