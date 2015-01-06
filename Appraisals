@@ -22,3 +22,11 @@ appraise "rails_4_1" do
   gem 'activerecord', version
   gem 'railties', version
 end
+
+appraise "rails_4_2" do
+  version = "~> 4.2.0"
+  gem 'activesupport', version
+  gem 'actionpack', version
+  gem 'activerecord', version
+  gem 'railties', version
+end
