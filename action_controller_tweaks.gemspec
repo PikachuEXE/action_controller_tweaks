@@ -40,6 +40,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "timecop", ">= 0.6"
   s.add_development_dependency "coveralls", ">= 0.7"
   s.add_development_dependency "gem-release", ">= 0.7"
+  # This is for rails < 4.1 on MRI 2.2 (and other later version I suppose)
+  s.add_development_dependency "test-unit", ">= 3.0.0"
 
   s.required_rubygems_version = ">= 1.4.0"
 end
