@@ -101,10 +101,12 @@ module ActionControllerTweaks
         raise InvalidOptionValue.new(:expires_in, expires_in, Numeric) if expires_in && !expires_in.is_a?(Numeric)
         raise InvalidOptionValue.new(:expires_at, expires_at, Time) if expires_at && !expires_at.is_a?(Time)
 
-        result[key] = if expires_in
-          expires_in.seconds.from_now
-        elsif expires_at
-          expires_at
+        if expires_in || expires_at
+          result[key] = if expires_in
+            expires_in.seconds.from_now
+          elsif expires_at
+            expires_at
+          end
         end
 
         result

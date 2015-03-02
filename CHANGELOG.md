@@ -1,6 +1,9 @@
 ### Changelog
 
 
+- **Unreleased**
+  - Fix session key still gets deleted when no option is set
+
 - **0.3.0**
   - Add method `#set_session_with_expiry`
   - Add option `expires_in` and `expires_at` to #set_session

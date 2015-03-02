@@ -97,6 +97,20 @@ describe PostsController, type: :controller do
           end
         end
 
+        context 'when calling it with not option' do
+          before do
+            controller.send(:set_session, session_key, session_value)
+          end
+
+          it 'set the session' do
+            expect(session[session_key]).to eq session_value
+          end
+
+          it 'does NOT add the session key to `session_keys_to_expire`' do
+            expect(session['session_keys_to_expire'].keys).to_not include(session_key)
+          end
+        end
+
         context 'when calling it with option expire_at' do
           let!(:time_before_expire) { expire_at - 1 }
           let!(:time_after_expire) { expire_at + 1 }
@@ -330,7 +344,7 @@ describe PostsController, type: :controller do
           end
         end
 
-        context 'when someone set non has to session_keys_to_expire' do
+        context 'when someone set non-hash to session_keys_to_expire' do
           before do
             session['session_keys_to_expire'] = []
           end
