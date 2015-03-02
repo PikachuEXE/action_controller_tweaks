@@ -57,7 +57,7 @@ module ActionControllerTweaks
         invalid_option_key_absent = (option_keys - VALID_OPTION_KEYS.dup).empty?
         (required_option_key_present && invalid_option_key_absent) or raise ActionControllerTweaks::Session::Errors::InvalidOptionKeys
 
-        set_session(key, value, options = {})
+        set_session(key, value, options)
       end
 
       def delete_expired_session_keys
