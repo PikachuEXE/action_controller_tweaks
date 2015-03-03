@@ -1,7 +1,7 @@
 ### Changelog
 
 
-- **Unreleased**
+- **0.3.1**
   - Fix session key still gets deleted when no option is set
   - Fix options not passed to `#set_session` when `#set_session_with_expiry` is called
 
