@@ -1,7 +1,9 @@
-Action Controller Tweaks
-===========
+# Action Controller Tweaks
 
 ActionController is great, but could be better. Here are some tweaks for it.
+
+
+## Status
 
 [![Build Status](http://img.shields.io/travis/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://travis-ci.org/PikachuEXE/action_controller_tweaks)
 [![Gem Version](http://img.shields.io/gem/v/action_controller_tweaks.svg?style=flat-square)](http://badge.fury.io/rb/action_controller_tweaks)
@@ -9,15 +11,15 @@ ActionController is great, but could be better. Here are some tweaks for it.
 [![Coverage Status](http://img.shields.io/coveralls/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://coveralls.io/r/PikachuEXE/action_controller_tweaks)
 [![Code Climate](http://img.shields.io/codeclimate/github/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://codeclimate.com/github/PikachuEXE/action_controller_tweaks)
 
-Install
-=======
+
+## Installation
 
 ```ruby
 gem 'action_controller_tweaks'
 ```
 
-Usage
-=====
+
+## Usage
 
 Either include it in specific controller or just `ApplicationController`
 ```ruby
