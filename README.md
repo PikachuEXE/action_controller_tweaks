@@ -3,9 +3,6 @@ Action Controller Tweaks
 
 ActionController is great, but could be better. Here are some tweaks for it.
 
-### Support
-===========
-
 [![Build Status](http://img.shields.io/travis/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://travis-ci.org/PikachuEXE/action_controller_tweaks)
 [![Gem Version](http://img.shields.io/gem/v/action_controller_tweaks.svg?style=flat-square)](http://badge.fury.io/rb/action_controller_tweaks)
 [![Dependency Status](http://img.shields.io/gemnasium/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](https://gemnasium.com/PikachuEXE/action_controller_tweaks)
