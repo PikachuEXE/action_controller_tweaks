@@ -52,7 +52,10 @@ module ActionControllerTweaks
       elsif respond_to?(:before_filter)
         before_filter :_delete_expired_session_keys
       else
-        fail "There is no `.before_action` nor `.before_filter` in this class"
+        fail(
+          NotImplementedError,
+          "There is no `.before_action` nor `.before_filter` in this class",
+        )
       end
 
       private

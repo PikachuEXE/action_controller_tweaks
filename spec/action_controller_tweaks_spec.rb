@@ -6,9 +6,9 @@ describe NotController do
       it "raises error" do
         expect do
           described_class.class_eval do
-            include Session
+            include ActionControllerTweaks::Session
           end
-        end.to raise_error
+        end.to raise_error(NotImplementedError)
       end
     end
   end
