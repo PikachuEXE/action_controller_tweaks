@@ -1,6 +1,10 @@
 ### Changelog
 
 
+- **Unreleased**
+  - Call `before_action` on included class if exists
+  - Raise error if both `before_action` and `before_filter` does not exists
+
 - **0.3.1**
   - Fix session key still gets deleted when no option is set
   - Fix options not passed to `#set_session` when `#set_session_with_expiry` is called
