@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 author_name = "PikachuEXE"
 gem_name = "action_controller_tweaks"
@@ -21,20 +21,19 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   s.require_paths = ["lib"]
 
   s.add_dependency "activesupport", ">= 3.2.0", "< 5.0.0"
   s.add_dependency "actionpack", ">= 3.2.0", "< 5.0.0"
-
-
 
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rake", ">= 0.9.2"
   s.add_development_dependency "appraisal", "~> 2.0"
   s.add_development_dependency "rspec-rails", "~> 3.0"
   s.add_development_dependency "rspec-its", "~> 1.0"
-  s.add_development_dependency "activerecord", ">= 3.2.0", "< 5.0.0" # rspec-rails needs activerecord...
+  # rspec-rails needs activerecord...
+  s.add_development_dependency "activerecord", ">= 3.2.0", "< 5.0.0"
   s.add_development_dependency "sqlite3", ">= 1.3"
   s.add_development_dependency "database_cleaner", ">= 1.0"
   s.add_development_dependency "timecop", ">= 0.6"
@@ -42,6 +41,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "gem-release", ">= 0.7"
   # This is for rails < 4.1 on MRI 2.2 (and other later version I suppose)
   s.add_development_dependency "test-unit", ">= 3.0.0"
+  s.add_development_dependency "rubocop", "~> 0.30"
 
   s.required_rubygems_version = ">= 1.4.0"
 end
