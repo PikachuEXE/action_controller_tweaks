@@ -1,5 +1,19 @@
 require "spec_helper"
 
+describe NotController do
+  describe "::Session" do
+    context "when included by a class without `before_action` or `before_filter`" do
+      it "raises error" do
+        expect do
+          described_class.class_eval do
+            include Session
+          end
+        end.to raise_error
+      end
+    end
+  end
+end
+
 describe PostsController, type: :controller do
   describe "included modules" do
     specify do

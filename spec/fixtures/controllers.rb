@@ -11,3 +11,6 @@ class PostsController < TestController
     set_no_cache if params[:no_cache]
   end
 end
+
+class NotController
+end
