@@ -11,6 +11,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- Nothing
+
+### Fixed
+
+- Nothing
+
+
+## [0.3.2] - 2016-12-23
+
+### Changed
+
 - Call `before_action` on included class if exists
 - Add support for AR 5.0.x
 - Drop support for AR 3.x
@@ -59,7 +70,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Initial Release
 
 
-[Unreleased]: https://github.com/AssetSync/asset_sync/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/AssetSync/asset_sync/compare/v0.3.2...HEAD
+[0.3.1]: https://github.com/AssetSync/asset_sync/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/AssetSync/asset_sync/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/AssetSync/asset_sync/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/AssetSync/asset_sync/compare/v0.1...v0.2.0
