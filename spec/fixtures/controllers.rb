@@ -8,6 +8,8 @@ class PostsController < TestController
   include ActionControllerTweaks
 
   def index
+    head(204)
+
     set_no_cache if params[:no_cache]
   end
 end

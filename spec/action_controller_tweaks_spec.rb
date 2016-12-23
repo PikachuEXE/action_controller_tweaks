@@ -24,7 +24,11 @@ describe PostsController, type: :controller do
   describe "::Caching" do
     describe "#set_no_cache" do
       before do
-        get :index, no_cache: true
+        if Rails::VERSION::MAJOR >= 5
+          get :index, params: { no_cache: true }
+        else
+          get :index, no_cache: true
+        end
       end
 
       it "includes the pre defined headeres" do
