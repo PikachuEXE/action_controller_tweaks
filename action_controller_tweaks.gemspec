@@ -24,8 +24,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency "activesupport", ">= 4.0.0", "< 5.1.0"
-  s.add_dependency "actionpack", ">= 4.0.0", "< 5.1.0"
+  s.add_dependency "activesupport", ">= 4.1.0", "< 6.0.0"
+  s.add_dependency "actionpack", ">= 4.1.0", "< 6.0.0"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rake", ">= 10.0", "<= 13.0"
@@ -43,7 +43,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "test-unit", ">= 3.0.0"
   s.add_development_dependency "rubocop", "~> 0.30"
 
-  s.required_ruby_version = ">= 2.1.0"
+  s.required_ruby_version = ">= 2.2.0"
 
   s.required_rubygems_version = ">= 1.4.0"
 end
