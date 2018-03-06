@@ -41,7 +41,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "gem-release", ">= 0.7"
   # This is for rails < 4.1 on MRI 2.2 (and other later version I suppose)
   s.add_development_dependency "test-unit", ">= 3.0.0"
-  s.add_development_dependency "rubocop", "~> 0.30"
 
   s.required_ruby_version = ">= 2.2.0"
 
