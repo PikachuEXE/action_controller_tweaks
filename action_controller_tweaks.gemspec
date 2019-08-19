@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "activesupport", ">= 4.1.0", "< 6.0.0"
-  s.add_dependency "actionpack", ">= 4.1.0", "< 6.0.0"
+  s.add_dependency "actionpack", ">= 4.1.0", "< 7.0.0"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rake", ">= 10.0", "<= 13.0"
