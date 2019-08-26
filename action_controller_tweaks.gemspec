@@ -42,7 +42,7 @@ Gem::Specification.new do |s|
   # This is for rails < 4.1 on MRI 2.2 (and other later version I suppose)
   s.add_development_dependency "test-unit", ">= 3.0.0"
 
-  s.required_ruby_version = ">= 2.2.0"
+  s.required_ruby_version = ">= 2.4.0"
 
   s.required_rubygems_version = ">= 1.4.0"
 end
