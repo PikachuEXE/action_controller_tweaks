@@ -34,7 +34,7 @@ appraise "rails_5_2" do
 end
 
 appraise "rails_6_0" do
-  version = "~> 6.0.0.beta1"
+  version = "~> 6.0.0"
   gem "activesupport", version
   gem "actionpack", version
   gem "activerecord", version
