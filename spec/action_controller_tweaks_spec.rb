@@ -32,8 +32,9 @@ describe PostsController, type: :controller do
       end
 
       it "includes the pre defined headeres" do
-        expect(controller.headers.
-          deep_include?(ActionControllerTweaks::Caching::HEADERS)).to be true
+        expect(
+          controller.headers.to_h,
+        ).to include(ActionControllerTweaks::Caching::HEADERS)
       end
     end
   end
