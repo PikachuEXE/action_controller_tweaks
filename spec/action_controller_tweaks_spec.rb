@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe NotController do
   describe "::Session" do
-    context "when included by a class without `before_action` or `before_filter`" do
+    context "when included by a class without `before_action`" do
       it "raises error" do
         expect do
           described_class.class_eval do
@@ -97,7 +97,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -108,7 +108,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -153,7 +153,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -164,7 +164,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -196,7 +196,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -207,7 +207,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -238,7 +238,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -249,7 +249,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -370,7 +370,7 @@ describe PostsController, type: :controller do
           before do
             session["session_keys_to_expire"] = {session_key => ""}
 
-            # Runs before_filter
+            # Runs before_action
             get :index
           end
 
@@ -464,7 +464,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -475,7 +475,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -517,7 +517,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -528,7 +528,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -560,7 +560,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -571,7 +571,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -602,7 +602,7 @@ describe PostsController, type: :controller do
           context "before expire time" do
             before do
               Timecop.travel(time_before_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 
@@ -613,7 +613,7 @@ describe PostsController, type: :controller do
           context "after expire time" do
             before do
               Timecop.travel(time_after_expire)
-              # Runs before_filter
+              # Runs before_action
               get :index
             end
 

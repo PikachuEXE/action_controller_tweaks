@@ -44,7 +44,7 @@ Usage:
 ### `#set_session` & `#set_session_with_expiry`
 I write this on my own, it's ok to blame me if it's buggy :P  
 This method let's you set session, with expiry time!  
-It depends on `before_filter`/`before_action` to remove expired session keys  
+It depends on `before_action` to remove expired session keys  
 Valid options: `expire_in`, `expires_in`, `expire_at`, `expires_at`
 Example:
 ```ruby
