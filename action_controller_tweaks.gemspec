@@ -37,7 +37,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3", ">= 1.3"
   s.add_development_dependency "database_cleaner", ">= 1.0"
   s.add_development_dependency "timecop", ">= 0.6"
-  s.add_development_dependency "coveralls", ">= 0.7"
+  s.add_development_dependency "simplecov", ">= 0.21"
+  s.add_development_dependency "simplecov-lcov", ">= 0.8"
   s.add_development_dependency "gem-release", ">= 0.7"
   # This is for rails < 4.1 on MRI 2.2 (and other later version I suppose)
   s.add_development_dependency "test-unit", ">= 3.0.0"
