@@ -32,9 +32,23 @@ describe PostsController, type: :controller do
       end
 
       it "includes the pre defined headeres" do
-        expect(
-          controller.headers.to_h,
-        ).to include(ActionControllerTweaks::Caching::HEADERS)
+        header_hash = controller.headers.to_h
+        is_rails_6_1_plus = Gem::Requirement.create([">= 6.1"]).
+          satisfied_by?(::Rails.gem_version)
+
+        aggregate_failures do
+          ActionControllerTweaks::Caching::HEADERS.each_pair do |header_name, header_value|
+            # Workaround for rails 6.1 updating value
+            # when input value contains `no-store`
+            #
+            # https://github.com/rails/rails/issues/40798
+            if header_name == "Cache-Control" && is_rails_6_1_plus
+              expect(header_hash[header_name]).to include("no-store")
+            else
+              expect(header_hash[header_name]).to eq(header_value)
+            end
+          end
+        end
       end
     end
   end
