@@ -1,3 +1,8 @@
+# `require "active_support"` required for rails 7
+# See more in
+# - https://github.com/rails/rails/issues/43851
+# - https://github.com/alphagov/govspeak/commit/fa9805297a07e1bdd90a1b47814980fe52ae55ec
+require "active_support"
 require "active_support/concern"
 require "active_support/time"
 
