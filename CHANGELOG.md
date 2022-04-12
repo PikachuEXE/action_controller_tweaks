@@ -18,6 +18,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Nothing
 
 
+## [0.3.6] - 2022-04-12
+
+### Changed
+
+- Add support for AR 7.x
+- Drop support for Ruby < 2.7
+
+
 ## [0.3.5] - 2020-09-07
 
 ### Fixed
