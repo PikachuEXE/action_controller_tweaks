@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rake", ">= 10.0", "<= 14.0"
   s.add_development_dependency "appraisal", "~> 2.0"
-  s.add_development_dependency "rspec-rails", "~> 5.1"
+  s.add_development_dependency "rspec-rails", "~> 6.0"
   s.add_development_dependency "rspec-its", "~> 1.0"
   # rspec-rails needs activerecord...
   s.add_development_dependency "activerecord", ">= 4.0.0"
