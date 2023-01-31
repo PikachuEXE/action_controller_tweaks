@@ -5,7 +5,7 @@ ActionController is great, but could be better. Here are some tweaks for it.
 
 ## Status
 
-[![GitHub Build Status](https://img.shields.io/github/workflow/status/PikachuEXE/action_controller_tweaks/Tests?style=flat-square)](https://github.com/PikachuEXE/action_controller_tweaks/actions?query=workflow%3ATests)
+[![GitHub Build Status](https://img.shields.io/github/actions/workflow/status/PikachuEXE/action_controller_tweaks/tests.yaml?branch=master&style=flat-square)](https://github.com/PikachuEXE/action_controller_tweaks/actions?query=workflow%3ATests)
 
 [![Gem Version](http://img.shields.io/gem/v/action_controller_tweaks.svg?style=flat-square)](http://badge.fury.io/rb/action_controller_tweaks)
 [![License](https://img.shields.io/github/license/PikachuEXE/action_controller_tweaks.svg?style=flat-square)](http://badge.fury.io/rb/action_controller_tweaks)
