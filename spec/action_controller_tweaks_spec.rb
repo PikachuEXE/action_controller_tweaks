@@ -35,6 +35,8 @@ describe PostsController, type: :controller do
         header_hash = controller.headers.to_h
         is_rails_6_1_plus = Gem::Requirement.create([">= 6.1"]).
           satisfied_by?(::Rails.gem_version)
+        is_rails_7_1_plus = Gem::Requirement.create([">= 7.1"]).
+          satisfied_by?(::Rails.gem_version)
 
         aggregate_failures do
           ActionControllerTweaks::Caching::HEADERS.each_pair do |header_name, header_value|
@@ -42,10 +44,12 @@ describe PostsController, type: :controller do
             # when input value contains `no-store`
             #
             # https://github.com/rails/rails/issues/40798
-            if header_name == "Cache-Control" && is_rails_6_1_plus
-              expect(header_hash[header_name]).to include("no-store")
+            #
+            # Rails 7.1 emit header names in lower case
+            if header_name.downcase == "cache-control" && is_rails_6_1_plus
+              expect(header_hash[is_rails_7_1_plus ? header_name.downcase : header_name]).to include("no-store")
             else
-              expect(header_hash[header_name]).to eq(header_value)
+              expect(header_hash[is_rails_7_1_plus ? header_name.downcase : header_name]).to eq(header_value)
             end
           end
         end
