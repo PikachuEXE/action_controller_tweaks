@@ -18,6 +18,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Nothing
 
 
+## [0.3.7] - 2024-12-18
+
+### Changed
+
+- Add support for AR 8.x
+- Drop support for AR < 7.x
+- Drop support for Ruby < 3.0
+
+
 ## [0.3.6] - 2022-04-12
 
 ### Changed
@@ -102,8 +111,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Initial Release
 
 
-[Unreleased]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.5...HEAD
-[0.3.4]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.4...v0.3.5
+[Unreleased]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.7...HEAD
+[0.3.6]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.6...v0.3.7
+[0.3.6]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.5...v0.3.6
+[0.3.5]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.4...v0.3.5
 [0.3.4]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/PikachuEXE/action_controller_tweaks/compare/v0.3.1...v0.3.2
