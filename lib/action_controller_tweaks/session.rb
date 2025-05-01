@@ -1,3 +1,6 @@
+# Workaround for uninitialized constant ActiveSupport::LoggerThreadSafeLevel::Logger
+require "logger"
+
 # `require "active_support"` required for rails 7
 # See more in
 # - https://github.com/rails/rails/issues/43851

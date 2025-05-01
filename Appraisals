@@ -5,6 +5,11 @@ appraise "rails_7_0" do
   gem "actionpack", version
   gem "activerecord", version
   gem "railties", version
+
+  gem "bigdecimal"
+  gem "mutex_m"
+  gem "logger"
+  gem "base64"
 end
 
 appraise "rails_7_1" do
