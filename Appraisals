@@ -1,25 +1,4 @@
 
-appraise "rails_7_0" do
-  version = "~> 7.0.0"
-  gem "activesupport", version
-  gem "actionpack", version
-  gem "activerecord", version
-  gem "railties", version
-
-  gem "bigdecimal"
-  gem "mutex_m"
-  gem "logger"
-  gem "base64"
-end
-
-appraise "rails_7_1" do
-  version = "~> 7.1.0"
-  gem "activesupport", version
-  gem "actionpack", version
-  gem "activerecord", version
-  gem "railties", version
-end
-
 appraise "rails_7_2" do
   version = "~> 7.2.0"
   gem "activesupport", version
@@ -36,3 +15,10 @@ appraise "rails_8_0" do
   gem "railties", version
 end
 
+appraise "rails_8_1" do
+  version = "~> 8.1.0"
+  gem "activesupport", version
+  gem "actionpack", version
+  gem "activerecord", version
+  gem "railties", version
+end
